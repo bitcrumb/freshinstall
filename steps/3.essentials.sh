@@ -51,6 +51,8 @@ if [ "$xcode_ok" == "no" ]; then
 		echo -e "\nSorry, but Xcode needs to installed first …"
 		echo "Please install it using AppStore.app, and then relaunch this script."
 		# open "/Applications/App Store.app"
+		# TODO: Automatically install Xcode, either via mas or xcode-install cli
+		# See: https://github.com/KrauseFx/xcode-install
 		echo -e "\n\033[93mMy journey stops here (for now) … bye! 👋\033[0m\n"
 		exit
 	else
@@ -147,7 +149,7 @@ if [ -n "$(which git)" ]; then
 		echo -e "\033[33mNeeds upgrade\033[0m"
 		GIT_NEEDS_TO_BE_INSTALLED="yes"
 	else
-		echo -e "\033[32mInstalled\033[0m"	
+		echo -e "\033[32mInstalled\033[0m"
 	fi;
 else
 	echo -e "\033[31mNot Installed\033[0m"
