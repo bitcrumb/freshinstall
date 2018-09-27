@@ -279,13 +279,6 @@ brew cask install https://raw.githubusercontent.com/grettir/homebrew-cask/36b240
 brew cask install subsurface
 brew cask install quik
 
-###############################################################################
-# Virtual Machines and stuff                                                  #
-###############################################################################
-
-# Locking down to this version (no serial for later version)
-brew cask install https://raw.githubusercontent.com/caskroom/homebrew-cask/a56c5894cc61d2bf182b7608e94128065af3e64f/Casks/vmware-fusion.rb
-brew cask install docker
 
 ###############################################################################
 # Android Studio                                                              #
