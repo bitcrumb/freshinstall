@@ -34,9 +34,9 @@ echo -e "- Terminal …"
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
-# Use Pro Theme
-defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
-defaults write com.apple.terminal "Default Window Settings" -string "Pro"
+# Set a faster key repeat
+defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 20
 
 # Enable Secure Keyboard Entry in Terminal.app
 # See: https://security.stackexchange.com/a/47786/8918
@@ -44,13 +44,6 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 # Disable the annoying line marks
 defaults write com.apple.Terminal ShowLineMarks -int 0
-
-# Disable visual bell
-# @ref https://superuser.com/a/1123198
-# TERMINAL_PLIST="$HOME/Library/Preferences/com.apple.Terminal.plist"
-# TERMINAL_THEME=`/usr/libexec/PlistBuddy -c "Print 'Default Window Settings'" $TERMINAL_PLIST`
-/usr/libexec/PlistBuddy -c "Delete 'Window Settings':Pro:VisualBell" ~/Library/Preferences/com.apple.Terminal.plist > /dev/null 2>&1
-/usr/libexec/PlistBuddy -c "Add 'Window Settings':Pro:VisualBell bool false" ~/Library/Preferences/com.apple.Terminal.plist
 
 ###############################################################################
 # NAMING THINGS                                                               #
@@ -71,8 +64,6 @@ sudo scutil --set ComputerName $computername
 sudo scutil --set HostName $computername
 sudo scutil --set LocalHostName $computername
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $computername
-
-
 
 # Apple ID
 if [ -n "$(defaults read NSGlobalDomain AppleID 2>&1 | grep -E "( does not exist)$")" ]; then
@@ -126,8 +117,8 @@ sudo systemsetup -setcomputersleep 10 > /dev/null
 
 echo -e "- General UI/UX …"
 
-# Disable transparency in the menu bar and elsewhere on Yosemite
-defaults write com.apple.universalaccess reduceTransparency -bool true
+# Disable transparency in the menu bar and elsewhere
+# defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Set Wallpaper
 yes | (cp -i ./resources/wallpaper.jpg ~/wallpaper.jpg > /dev/null 2>&1)
@@ -247,11 +238,11 @@ sudo pmset -a hibernatemode 0
 
 echo -e "- Trackpad, mouse, keyboard, Bluetooth accessories, and input …"
 
-# Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# Trackpad: disable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool false
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
 
 # Trackpad: enable right click with two fingers
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
@@ -313,9 +304,8 @@ defaults write NSGlobalDomain AppleTemperatureUnit -string "Celsius"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 defaults write NSGlobalDomain AppleICUForce12HourTime -bool false
 
-
 # Set Lock Message to show on login screen
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "Found me? Shoot a mail to bramus@bram.us to return me. Thanks."
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "Found me? Send a mail to lode.vanhove@gmail.mobi to return me. Thanks."
 
 # # Disable guest login
 # sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText GuestEnabled -bool false
@@ -487,7 +477,7 @@ defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -int 52
 
 # Minimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool true
+# defaults write com.apple.dock minimize-to-application -bool true
 
 # Enable spring loading for all Dock items
 # defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -533,9 +523,11 @@ defaults write com.apple.dock mru-spaces -bool false
 # 12: Notification Center
 
 # Top right screen corner → Start screen saver
-defaults write com.apple.dock wvous-tr-corner -int 5
-defaults write com.apple.dock wvous-tr-modifier -int 0
+defaults write com.apple.dock wvous-br-corner -int 4
+defaults write com.apple.dock wvous-bl-corner -int 3
 
+# TODO: Customize dock icons
+# TODO: Download custom screensave & set is as active one
 
 
 ###############################################################################
