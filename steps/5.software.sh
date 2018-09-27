@@ -371,13 +371,3 @@ echo ""
 echo "    Download from https://developer.apple.com/download/more/"
 echo "    Mount the .dmg + install it from the Graphics subfolder"
 echo ""
-
-echo "- Little Snitch"
-echo ""
-echo "    Download from https://www.obdev.at/products/littlesnitch/index.html"
-echo ""
-
-echo "- NZBDrop"
-echo ""
-echo "    Download from http://www.asar.com/nzbdrop.html"
-echo ""
