@@ -115,16 +115,6 @@ brew install youtube-dl
 
 
 ###############################################################################
-# VISCOSITY + CONFIGS                                                         #
-###############################################################################
-
-brew cask install viscosity
-curl -s -o ~/Downloads/uns_configs.zip -L https://usenetserver.com/vpn/software/uns_configs.zip > /dev/null
-
-echo -e "\n\033[93mYou'll need to import the Viscosity configs manually. I've downloadeded them to “~/Downloads/uns_configs.zip” for you …\033[0m\n"
-
-
-###############################################################################
 # REACT NATIVE + TOOLS                                                        #
 ###############################################################################
 
