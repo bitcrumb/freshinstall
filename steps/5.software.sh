@@ -206,58 +206,21 @@ defaults write org.m0k.transmission UploadLimit -int 5
 # OTHER BREW/CASK THINGS                                                      #
 ###############################################################################
 
-brew install tig
-
 brew install speedtest-cli
-brew install jq
 
 brew cask install 1password
-brew cask install macpass
+brew cask install alfred
+brew cask install spectacle
+brew cask install zoomus
 
-brew cask install caffeine
-# brew cask install nosleep
-
-brew cask install day-o
-brew cask install deltawalker
-brew cask install macpar-deluxe
-
+brew cask install spotify
 brew cask install vlc
 duti -s org.videolan.vlc public.avi all
-# brew cask install plex-media-server
 
+brew cask install zeplin
 brew cask install charles
-brew cask install ngrok
-
-brew cask install slack
-brew cask install hipchat
-
-brew cask install tower
-brew cask install dropbox
-brew cask install transmit4
-
-brew cask install handbrake
-brew cask install spectacle
-
-brew install mkvtoolnix
-brew cask install makemkv
-brew cask install jubler
-brew cask install flixtools
-
-brew cask install the-archive-browser
-brew cask install imagealpha
-brew cask install colorpicker-skalacolor
-
-brew cask install steam
-brew cask install xact
-
 brew cask install postman
-
-# Locking down to this version (no serial for later version)
-brew cask install https://raw.githubusercontent.com/grettir/homebrew-cask/36b240eeec68e993a928395d3afdcef1e32eb592/Casks/screenflow.rb
-
-brew cask install subsurface
-brew cask install quik
-
+brew cask install fork
 
 source ./software/atom.sh
 source ./software/vscode.sh
