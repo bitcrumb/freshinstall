@@ -23,7 +23,7 @@ Via Terminal _(maximize the window for the best effect)_:
 ```
 mkdir ~/Downloads/freshinstall
 cd ~/Downloads/freshinstall
-curl -#L https://github.com/bramus/freshinstall/tarball/master | tar -xzv --strip-components 1 --exclude={LICENSE}
+curl -#L https://github.com/bitcrumb/freshinstall/tarball/master | tar -xzv --strip-components 1 --exclude={LICENSE}
 ```
 
 ## Usage
