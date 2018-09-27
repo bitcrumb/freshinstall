@@ -160,6 +160,9 @@ if [ "$GIT_NEEDS_TO_BE_INSTALLED" = "yes" ]; then
 	brew install git
 fi;
 
+# TODO: Move the (global) settings to a static .gitconfig file in the
+# /resources/dotfiles directory, no need for this to be dynamically generated.
+
 echo -e "  - Setting up your Git Identity …"
 
 # Fall back to the Apple ID as the git e-mail address if none set yet
