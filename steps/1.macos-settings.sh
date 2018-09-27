@@ -523,8 +523,8 @@ defaults write com.apple.dock mru-spaces -bool false
 # 12: Notification Center
 
 # Top right screen corner → Start screen saver
-defaults write com.apple.dock wvous-br-corner -int 4
-defaults write com.apple.dock wvous-bl-corner -int 3
+defaults write com.apple.dock wvous-br-corner -int 3
+defaults write com.apple.dock wvous-bl-corner -int 4
 
 # TODO: Customize dock icons
 # TODO: Download custom screensave & set is as active one
