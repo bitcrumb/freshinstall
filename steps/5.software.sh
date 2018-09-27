@@ -77,17 +77,10 @@ if [ "$AppleID" != "" ]; then
 	mas install 409183694 # Keynote
 
 	# Others
-	mas install 494803304 # Wifi Explorer
+	mas install 1408727408 # Wifi Explorer Lite
 	mas install 425424353 # The Unarchiver
 	mas install 404167149 # IP Scanner
-	mas install 402397683 # MindNode Lite
-	mas install 578078659 # ScreenSharingMenulet
 	mas install 803453959 # Slack
-	mas install 1006739057 # NepTunes (Last.fm Scrobbling)
-	mas install 955297617 # CodeRunner 2
-	mas install 1313773050 # Artstudio Pro
-	mas install 824171161 # Affinity Designer
-	mas install 824183456 # Affinity Photo
 
 fi;
 
