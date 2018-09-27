@@ -166,16 +166,16 @@ brew cask install transmission
 
 # Use `~/Downloads/_INCOMING` to store incomplete downloads
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/_INCOMING"
-if [ ! -d "${HOME}/Downloads/_INCOMING" ]; then
-	mkdir ${HOME}/Downloads/_INCOMING
+defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Tansmission/.incomplete"
+if [ ! -d "${HOME}/Downloads/Transmission/.incomplete" ]; then
+	mkdir -p ${HOME}/Downloads/Transmission/.incomplete
 fi;
 
 # Use `~/Downloads/_COMPLETE` to store completed downloads
 defaults write org.m0k.transmission DownloadLocationConstant -bool true
-defaults write org.m0k.transmission DownloadFolder -string "${HOME}/Downloads/_COMPLETE"
-if [ ! -d "${HOME}/Downloads/_COMPLETE" ]; then
-	mkdir ${HOME}/Downloads/_COMPLETE
+defaults write org.m0k.transmission DownloadFolder -string "${HOME}/Downloads/Transmission"
+if [ ! -d "${HOME}/Downloads/Transmission/" ]; then
+	mkdir -p ${HOME}/Downloads/Transmission
 fi;
 
 # Autoload torrents from Downloads folder
