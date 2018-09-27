@@ -305,7 +305,7 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 defaults write NSGlobalDomain AppleICUForce12HourTime -bool false
 
 # Set Lock Message to show on login screen
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "Found me? Send a mail to lode.vanhove@gmail.mobi to return me. Thanks."
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "Found me? Send a mail to lode.vanhove@gmail.com to return me. Thanks."
 
 # # Disable guest login
 # sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText GuestEnabled -bool false
