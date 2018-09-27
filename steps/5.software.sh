@@ -188,52 +188,6 @@ qlmanage -m
 
 
 ###############################################################################
-# Composer + MySQL + Valet                                                    #
-###############################################################################
-
-# Composer
-curl -s https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-
-echo "# Composer" >> ~/.bash_profile
-echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bash_profile
-source ~/.bash_profile
-
-# Newer PHP Versions
-brew install php
-brew install php@7.1
-
-brew services start php
-brew link php
-
-# MySQL
-brew install mysql
-brew services start mysql
-
-# Tweak MySQL
-mysqlpassword="root"
-echo -e "\n  What should the root password for MySQL be? (default: $mysqlpassword)"
-echo -ne "  > \033[34m\a"
-read
-echo -e "\033[0m\033[1A"
-[ -n "$REPLY" ] && mysqlpassword=$REPLY
-
-mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY '$mysqlpassword'; FLUSH PRIVILEGES;"
-cat ./resources/apps/mysql/my.cnf > /usr/local/etc/my.cnf
-brew services restart mysql
-
-# Laravel Valet
-composer global require laravel/valet
-valet install
-
-# If you want PMA available over https://pma.test/, run this:
-# cd ~/repos/misc/
-# composer create-project phpmyadmin/phpmyadmin
-# cd ~/repos/misc/phpmyadmin
-# valet link pma
-# valet secure
-
-###############################################################################
 # Transmission.app + Config                                                   #
 ###############################################################################
 
