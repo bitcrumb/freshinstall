@@ -201,9 +201,12 @@ git config --global color.ui true
 # @ref https://www.bram.us/2013/12/17/making-git-rebase-safe-on-os-x/
 git config --global core.trustctime false
 
+git config --global alias.aliases "config --get-regexp alias"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.hide "update-index --assume-unchanged"
 git config --global alias.unhide "update-index --no-assume-unchanged"
+git config --global alias.lucky "!sh -c 'git checkout $(git which $1 -m1)' -"
+git config --global alias.uncommit "reset --soft HEAD^"
 
 echo -e "\033[32mOK\033[0m"
 
