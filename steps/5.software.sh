@@ -266,6 +266,8 @@ brew cask install subsurface
 brew cask install quik
 
 
+source ./software/atom.sh
+source ./software/vscode.sh
 source ./software/android.sh
 
 ###############################################################################
