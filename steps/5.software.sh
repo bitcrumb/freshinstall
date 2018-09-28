@@ -233,6 +233,9 @@ defaults write org.m0k.transmission UploadLimit -int 5
 
 brew install speedtest-cli
 
+brew cask install google-drive-file-stream
+brew cask install google-backup-and-sync
+
 brew cask install 1password
 brew cask install alfred
 brew cask install spectacle
