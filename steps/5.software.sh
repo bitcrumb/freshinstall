@@ -81,6 +81,7 @@ if [ "$AppleID" != "" ]; then
 	mas install 425424353 # The Unarchiver
 	mas install 404167149 # IP Scanner
 	mas install 803453959 # Slack
+	mas install 441258766 # Magnet
 
 fi;
 
@@ -238,7 +239,6 @@ brew cask install google-backup-and-sync
 
 brew cask install 1password
 brew cask install alfred
-brew cask install spectacle
 brew cask install zoomus
 
 brew cask install spotify
