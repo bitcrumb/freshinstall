@@ -386,7 +386,7 @@ defaults write com.apple.finder ShowPreviewPane -bool false
 defaults write com.apple.finder ShowPathbar -bool false
 
 # Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool false
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true

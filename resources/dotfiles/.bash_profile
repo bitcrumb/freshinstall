@@ -41,6 +41,7 @@ alias localip="ipconfig getifaddr en0" #wireless
 alias ipv4="ifconfig -a | grep -o 'inet \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet //'"
 alias ipv6="ifconfig -a | grep -o 'inet6 \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6 //'"
 alias afconfig="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+# TODO: Add alias to toggle show/hide hidden folders & files
 
 # Flush Directory Service cache
 alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
