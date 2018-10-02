@@ -250,6 +250,8 @@ brew cask install charles
 brew cask install postman
 brew cask install fork
 
+brew cask install macdown
+
 source ./software/atom.sh
 source ./software/vscode.sh
 source ./software/android.sh
