@@ -19,6 +19,7 @@ fi;
 
 brew install node@8
 brew link --force node@8
+npm install -g flow-bin
 
 
 ###############################################################################
