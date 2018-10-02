@@ -332,8 +332,9 @@ echo -e "- Screen and Screensaver …"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 5
 
-# Set screensaver to flurry, start after 5 minutes
-defaults -currentHost write com.apple.screensaver moduleDict -dict path -string "/System/Library/Screen Savers/Flurry.saver" moduleName -string "Flurry" type -int 0
+# Set screensaver to Word Clock, start after 5 minutes
+cp -R ./resources/Word\ Clock.saver /Users/lode/Library/Screen\ Savers/
+defaults -currentHost write com.apple.screensaver moduleDict -dict path -string "/Users/Lode/Library/Screen Savers/Word Clock.saver" moduleName "Word Clock" type -int 0
 defaults -currentHost write com.apple.screensaver idleTime -int 300
 
 # Save screenshots to the desktop
