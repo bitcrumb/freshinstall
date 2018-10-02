@@ -40,7 +40,7 @@ fi;
 # RVM                                                                         #
 ###############################################################################
 
-curl -sSL https://get.rvm.io | bash -s stable --ruby
+curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
 source ~/.profile
 
 
