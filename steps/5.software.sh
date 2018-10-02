@@ -14,26 +14,11 @@ fi;
 
 
 ###############################################################################
-# NVM + Node Versions                                                         #
+# React Native
 ###############################################################################
 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-source ~/.bash_profile
-
-nvm install 7
-nvm install 9
-nvm use default 9
-
-NPM_USER=""
-echo -e "\nWhat's your npm username?"
-echo -ne "> \033[34m\a"
-read
-echo -e "\033[0m\033[1A\n"
-[ -n "$REPLY" ] && NPM_USER=$REPLY
-
-if [ "$NPM_USER" != "" ]; then
-	npm adduser $NPM_USER
-fi;
+brew install node@8
+brew link --force node@8
 
 
 ###############################################################################
