@@ -121,8 +121,8 @@ echo -e "- General UI/UX …"
 # defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Set Wallpaper
-yes | (cp -i ./resources/wallpaper.jpg ~/wallpaper.jpg > /dev/null 2>&1)
-sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "INSERT OR REPLACE INTO data VALUES ('~/wallaper.jpg');"
+yes | (cp -i ./resources/wallpaper.jpg ~/Pictures/wallpaper.jpg > /dev/null 2>&1)
+sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '~/Pictures/wallpaper.jpg'" && killall Dock
 
 # Set sidebar icon size to small
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
