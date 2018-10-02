@@ -135,11 +135,6 @@ brew install youtube-dl
 
 npm install -g react-native-cli
 
-brew install yarn --without-node
-echo "# Yarn" >> ~/.bash_profile
-echo 'export PATH="$HOME/.yarn/bin:$PATH"' >> ~/.bash_profile
-source ~/.bash_profile
-
 brew install watchman
 # Watchman needs permissions on ~/Library/LaunchAgents
 if [ ! -d "~/Library/LaunchAgents" ]; then
