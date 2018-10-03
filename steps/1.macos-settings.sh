@@ -200,6 +200,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Install fonts
+cp -Rf ./resources/fonts/* ~/Library/Fonts
+
 
 ###############################################################################
 # MacBookPro Touch Bar                                                        #
@@ -349,7 +352,6 @@ defaults write com.apple.screencapture type -string "png"
 # Enable subpixel font rendering on non-Apple LCDs
 # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
 defaults write NSGlobalDomain AppleFontSmoothing -int 1
-
 
 
 ###############################################################################
