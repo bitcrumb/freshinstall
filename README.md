@@ -20,7 +20,7 @@ Good, `./freshinstall` will help you out with that.
 
 Via Terminal _(maximize the window for the best effect)_:
 
-```
+```sh
 mkdir ~/Downloads/freshinstall
 cd ~/Downloads/freshinstall
 curl -#L https://github.com/bitcrumb/freshinstall/tarball/master | tar -xzv --strip-components 1 --exclude={LICENSE}
@@ -40,35 +40,35 @@ With successive runs, `./freshinstall` will pick up where it left. If you do wan
 
 1. macOS Defaults **(reboot required)**
 
-	This step will set some (opinionated) macOS defaults.
+    This step will set some (opinionated) macOS defaults.
 
 2. SSH Configuration
 
-	This step will check your SSH Configuration, and create an SSH key if none has been created yet.
+    This step will check your SSH Configuration, and create an SSH key if none has been created yet.
 
 3. Essentials
 
-	This step will install some required essentials. These include:
+    This step will install some required essentials. These include:
 
-	- Xcode and its Command Line Tools
-	- Homebrew
-	- Git
+    - Xcode and its Command Line Tools
+    - Homebrew
+    - Git
 
-	The git installation will also do some basic configuration ;)
+    The git installation will also do some basic configuration ;)
 
 4. Dotfiles
 
-	This step will copy over the defined dotfiles. Included things are:
+    This step will copy over the defined dotfiles. Included things are:
 
-	- A customized prompt
-	- Git branch autocompletion
-	- Makefile autocompletion
+    - A customized prompt
+    - Git branch autocompletion
+    - Makefile autocompletion
 
-	_Note that these files (`.bash_profile` and such) will be altered in later steps, upon installing specific pieces of software_
+    _Note that these files (`.bash_profile` and such) will be altered in later steps, upon installing specific pieces of software_
 
 5. Software
 
-	Handpicked selection of Software + Config in some cases
+    Handpicked selection of Software + Config in some cases
 
 ## License
 
@@ -76,7 +76,7 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 
 ## Credits
 
-- Bram(us) Van Damme <em>([https://www.bram.us/](https://www.bram.us/))</em>
+- Bram(us) Van Damme *([https://www.bram.us/](https://www.bram.us/))*
 - [All Contributors](../../contributors)
 
 ## Resources
