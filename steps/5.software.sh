@@ -12,14 +12,34 @@ if [ "$starting_script" != "freshinstall.sh" ]; then
 	exit 1
 fi;
 
+###############################################################################
+# NVM + Node Versions                                                         #
+###############################################################################
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+source ~/.bash_profile
+
+nvm install 8
+nvm install 10
+nvm use default 9
+
+NPM_USER=""
+echo -e "\nWhat's your npm username?"
+echo -ne "> \033[34m\a"
+read
+echo -e "\033[0m\033[1A\n"
+[ -n "$REPLY" ] && NPM_USER=$REPLY
+
+if [ "$NPM_USER" != "" ]; then
+	npm adduser $NPM_USER
+fi;
+
 
 ###############################################################################
-# React Native
+# Node based tools                                                            #
 ###############################################################################
 
-brew install node@8
-brew link --force node@8
-npm install -g flow-bin
+npm i -g node-notifier-cli
 
 
 ###############################################################################
@@ -67,7 +87,7 @@ if [ "$AppleID" != "" ]; then
 	mas install 425424353 # The Unarchiver
 	mas install 404167149 # IP Scanner
 	mas install 803453959 # Slack
-	mas install 441258766 # Magnet
+	mas install 411643860 # DaisyDisk
 
 fi;
 
@@ -166,7 +186,7 @@ brew cask install transmission
 
 # Use `~/Downloads/_INCOMING` to store incomplete downloads
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Tansmission/.incomplete"
+defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Transmission/.incomplete"
 if [ ! -d "${HOME}/Downloads/Transmission/.incomplete" ]; then
 	mkdir -p ${HOME}/Downloads/Transmission/.incomplete
 fi;
@@ -228,9 +248,13 @@ duti -s org.videolan.vlc public.avi all
 
 brew cask install zeplin
 brew cask install charles
+
+brew cask install whatsapp
+
+brew cask install moom
+
 brew cask install postman
 brew cask install fork
-
 brew cask install macdown
 
 source ./software/atom.sh

@@ -46,7 +46,7 @@ alias afconfig="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'
 # TODO: Add alias to toggle show/hide hidden folders & files
 
 # Flush Directory Service cache
-alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias flushdns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 # fix openwith dupes + kill Finder + open TotalFinder
 alias lscleanup='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder && open /Applications/TotalFinder.app'

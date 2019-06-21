@@ -203,6 +203,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Install fonts
 cp -Rf ./resources/fonts/* ~/Library/Fonts
 
+# Reveal IP address, hostname, OS version, etc. when clicking the clock
+# in the login window
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 ###############################################################################
 # MacBookPro Touch Bar                                                        #
@@ -324,6 +327,15 @@ sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 # # Turn off keyboard illumination when computer is not used for 5 minutes
 # defaults write com.apple.BezelServices kDimTime -int 300
 
+# @TOCHECK
+# # Increase sound quality for Bluetooth headphones/headsets
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
+# defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
 
 ###############################################################################
 # Screen and Screensaver                                                      #
@@ -394,6 +406,9 @@ defaults write com.apple.finder AppleShowAllFiles -bool false
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# Finder: allow text selection in Quick Look
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
@@ -459,12 +474,20 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Hide Preview Columns
 /usr/libexec/PlistBuddy -c "Set :StandardViewOptions:ColumnViewOptions:ColumnShowIcons bool false" ~/Library/Preferences/com.apple.finder.plist && killall Finder
 
+# # Prevent Time Machine from prompting to use new hard drives as backup volume
+# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disable Mojave's Floating Screenshot Thumbnail
+defaults write com.apple.screencapture show-thumbnail -bool FALSE
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
 echo -e "- Dock, Dashboard, and hot corners …"
+
+# # Prevent applications from bouncing in Dock
+# defaults write com.apple.dock no-bouncing -bool true
 
 # Enable highlight hover effect for the grid view of a stack (Dock)
 # defaults write com.apple.dock mouse-over-hilite-stack -bool true
@@ -502,6 +525,9 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
+
+# # Make Dock icons of hidden applications translucent
+# defaults write com.apple.dock showhidden -bool true
 
 # # Add iOS & Watch Simulator to Launchpad
 # sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
@@ -713,6 +739,11 @@ defaults write com.apple.ActivityMonitor DiskGraphType -int 1
 # Show Data in the Network graph (instead of packets)
 defaults write com.apple.ActivityMonitor NetworkGraphType -int 1
 
+# @TOCHECK
+# # Sort Activity Monitor results by CPU usage
+# defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+# defaults write com.apple.ActivityMonitor SortDirection -int 0
+
 
 ###############################################################################
 # Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
@@ -725,6 +756,7 @@ echo -e "- Misc Apps …"
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
+
 # Open and save files as UTF-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
