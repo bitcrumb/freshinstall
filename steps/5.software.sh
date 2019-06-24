@@ -97,7 +97,7 @@ fi;
 ###############################################################################
 
 brew cask install google-chrome
-
+brew cask install firefox
 
 ###############################################################################
 # FONTS                                                                       #
@@ -120,8 +120,9 @@ brew cask install iterm2
 ###############################################################################
 
 brew cask install whatsapp
-brew cask install messenger
+brew cask install caprine # facebook messenger
 brew cask install slack
+brew cask install discord
 
 
 ###############################################################################
@@ -150,6 +151,7 @@ else
 fi;
 
 brew cask install react-native-debugger
+brew cask install reactotron
 
 brew install --HEAD libimobiledevice
 gem install xcpretty
@@ -233,8 +235,6 @@ defaults write org.m0k.transmission UploadLimit -int 5
 # OTHER BREW/CASK THINGS                                                      #
 ###############################################################################
 
-brew install speedtest-cli
-
 brew cask install google-drive-file-stream
 brew cask install google-backup-and-sync
 
@@ -243,19 +243,30 @@ brew cask install alfred
 brew cask install zoomus
 
 brew cask install spotify
+brew cask install iina
 brew cask install vlc
 duti -s org.videolan.vlc public.avi all
 
 brew cask install zeplin
-brew cask install charles
-
-brew cask install whatsapp
+brew cask install sketch
+brew cask install figma
+brew cask install framer-x
 
 brew cask install moom
 
+brew cask install charles
 brew cask install postman
 brew cask install fork
+
 brew cask install macdown
+brew cask install adobe-acrobat-reader
+brew cask install notion
+
+brew cask install microsoft-office
+
+brew cask install daisydisk
+brew cask install little-snitch
+brew cask install paparazzi
 
 source ./software/vscode.sh
 
