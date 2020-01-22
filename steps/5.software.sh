@@ -180,6 +180,69 @@ qlmanage -m
 
 
 ###############################################################################
+<<<<<<< HEAD
+=======
+# Composer + MySQL + Valet                                                    #
+###############################################################################
+
+# Composer
+curl -s https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+echo "# Composer" >> ~/.bash_profile
+echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+
+# Composer Autocomplete
+# brew install bash-completion
+curl -#L https://github.com/bramus/composer-autocomplete/tarball/master | tar -xzv --strip-components 1 --exclude={LICENSE,README.md}
+mv ./composer-autocomplete ~/composer-autocomplete
+echo "" >> ~/.bash_profile
+echo 'if [ -f "$HOME/composer-autocomplete" ] ; then' >> ~/.bash_profile
+echo '    . $HOME/composer-autocomplete' >> ~/.bash_profile
+echo "fi" >> ~/.bash_profile
+source ~/.bash_profile
+
+# PHP Versions
+brew install php
+
+brew services start php
+brew link php
+
+pecl install mcrypt-1.0.1 # mcrypt for PHP > 7.1
+pecl install grpc # needed for google firestore et al
+
+# @note: You might wanna "sudo brew services restart php" after this
+
+# MySQL
+brew install mysql
+brew services start mysql
+
+# Tweak MySQL
+mysqlpassword="root"
+echo -e "\n  What should the root password for MySQL be? (default: $mysqlpassword)"
+echo -ne "  > \033[34m\a"
+read
+echo -e "\033[0m\033[1A"
+[ -n "$REPLY" ] && mysqlpassword=$REPLY
+
+mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY '$mysqlpassword'; FLUSH PRIVILEGES;"
+cat ./resources/apps/mysql/my.cnf > /usr/local/etc/my.cnf
+brew services restart mysql
+
+# Laravel Valet
+composer global require laravel/valet
+valet install
+
+# If you want PMA available over https://pma.test/, run this:
+# cd ~/repos/misc/
+# composer create-project phpmyadmin/phpmyadmin
+# cd ~/repos/misc/phpmyadmin
+# valet link pma
+# valet secure
+
+###############################################################################
+>>>>>>> bramus/master
 # Transmission.app + Config                                                   #
 ###############################################################################
 
@@ -258,9 +321,49 @@ brew cask install charles
 brew cask install postman
 brew cask install fork
 
+<<<<<<< HEAD
 brew cask install macdown
 brew cask install adobe-acrobat-reader
 brew cask install notion
+=======
+# Locking down to this version (no serial for later version)
+brew cask install https://raw.githubusercontent.com/grettir/homebrew-cask/36b240eeec68e993a928395d3afdcef1e32eb592/Casks/screenflow.rb
+
+brew cask install subsurface
+brew cask install quik
+
+brew cask install veracrypt
+
+###############################################################################
+# Virtual Machines and stuff                                                  #
+###############################################################################
+
+# Locking down to this version (no serial for later version)
+brew cask install https://raw.githubusercontent.com/caskroom/homebrew-cask/a56c5894cc61d2bf182b7608e94128065af3e64f/Casks/vmware-fusion.rb
+brew cask install docker
+
+###############################################################################
+# Android Studio                                                              #
+###############################################################################
+
+# @ref https://gist.github.com/agrcrobles/165ac477a9ee51198f4a870c723cd441
+# @ref https://gist.github.com/spilth/e7385e7f5153f76cca40a192be35f4ba
+
+touch ~/.android/repositories.cfg
+
+# Android Dev Tools
+brew cask install caskroom/versions/java8
+brew install ant
+brew install maven
+brew install gradle
+# brew install qt
+brew cask install android-sdk
+brew cask install android-ndk
+
+# SDK Components
+sdkmanager "platform-tools" "platforms;android-25" "extras;intel;Hardware_Accelerated_Execution_Manager" "build-tools;25.0.3" "system-images;android-25;google_apis_playstore;x86" "emulator"
+# echo y | …
+>>>>>>> bramus/master
 
 brew cask install microsoft-office
 

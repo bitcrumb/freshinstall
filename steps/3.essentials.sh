@@ -81,6 +81,9 @@ DevToolsSecurity -enable 2>&1 > /dev/null
 # Don't show device bezels
 defaults write com.apple.iphonesimulator ShowChrome -bool FALSE
 
+# Allow iOS Simulator in Fullscreen Mode, so that you can stock another fullscreen window next to it
+defaults write com.apple.iphonesimulator AllowFullscreenMode -bool YES
+
 
 ###############################################################################
 # HOMEBREW                                                                    #
@@ -210,6 +213,7 @@ git config --global alias.hide "update-index --assume-unchanged"
 git config --global alias.unhide "update-index --no-assume-unchanged"
 git config --global alias.lucky "!sh -c 'git checkout $(git which $1 -m1)' -"
 git config --global alias.uncommit "reset --soft HEAD^"
+git config --global alias.squash-all '!f(){ git reset $(git commit-tree HEAD^{tree} -m "${1:-🎉 First commit}");};f'
 
 echo -e "\033[32mOK\033[0m"
 
