@@ -19,9 +19,9 @@ fi;
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 source ~/.bash_profile
 
-nvm install 8
 nvm install 10
-nvm use default 9
+nvm install 12
+nvm use default 10
 
 NPM_USER=""
 echo -e "\nWhat's your npm username?"
