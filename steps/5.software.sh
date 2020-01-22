@@ -245,6 +245,7 @@ brew cask install zoomus
 brew cask install spotify
 brew cask install iina
 brew cask install vlc
+brew install duti
 duti -s org.videolan.vlc public.avi all
 
 brew cask install zeplin
