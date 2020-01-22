@@ -6,10 +6,6 @@ source ~/.bash_prompt
 # Load in .bashrc
 source ~/.bashrc
 
-# autocomplete git branches
-# @ref https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
-source ~/.git-completion.sh
-
 # Makefile autocompletion
 # @ref http://stackoverflow.com/a/36044470/2076595
 function _makefile_targets {
