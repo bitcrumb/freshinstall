@@ -119,7 +119,7 @@ sudo systemsetup -setcomputersleep 10 > /dev/null
 echo -e "- General UI/UX …"
 
 # Disable transparency in the menu bar and elsewhere
-# defaults write com.apple.universalaccess reduceTransparency -bool true
+# defaults write com.apple.universalaccess.plist reduceTransparency -bool true
 
 # Set Wallpaper
 yes | (cp -i ./resources/wallpaper.jpg ~/Pictures/wallpaper.jpg > /dev/null 2>&1)
@@ -291,12 +291,12 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+ 
+defaults write com.apple.universalaccess.plist HIDScrollZoomModifierMask -int 262144
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 
 # Follow the keyboard focus while zoomed in
-# defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+# defaults write com.apple.universalaccess.plist closeViewZoomFollowsFocus -bool true
 
 # Disable press-and-hold for keys in favor of key repeat
 # defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
