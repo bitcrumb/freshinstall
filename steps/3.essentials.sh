@@ -196,9 +196,7 @@ git config --global alias.aliases "config --get-regexp alias"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.hide "update-index --assume-unchanged"
 git config --global alias.unhide "update-index --no-assume-unchanged"
-git config --global alias.lucky "!sh -c 'git checkout $(git which $1 -m1)' -"
 git config --global alias.uncommit "reset --soft HEAD^"
-git config --global alias.squash-all '!f(){ git reset $(git commit-tree HEAD^{tree} -m "${1:-🎉 First commit}");};f'
 
 echo -e "\033[32mOK\033[0m"
 
