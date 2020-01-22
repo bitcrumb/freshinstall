@@ -58,12 +58,13 @@ echo -ne "  > \033[34m\a"
 read
 echo -e "\033[0m\033[1A"
 [ -n "$REPLY" ] && computername=$REPLY
+computername_escaped="${computername// /}" # strip spaces
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName $computername
-sudo scutil --set HostName $computername
-sudo scutil --set LocalHostName $computername
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $computername
+sudo scutil --set ComputerName "$computername"
+sudo scutil --set HostName "$computername"
+sudo scutil --set LocalHostName $computername_escaped
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$computername"
 
 # Apple ID
 if [ -n "$(defaults read NSGlobalDomain AppleID 2>&1 | grep -E "( does not exist)$")" ]; then
