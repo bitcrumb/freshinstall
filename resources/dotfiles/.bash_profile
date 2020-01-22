@@ -1,8 +1,5 @@
 source ~/.profile
 
-# color my prompt!
-source ~/.bash_prompt
-
 # Load in .bashrc
 source ~/.bashrc
 
