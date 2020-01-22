@@ -19,7 +19,3 @@ alias lscleanup='/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 
 # SSH
 alias pubkey="pbcopy < ~/.ssh/id_rsa.pub"
-
-# Remember SSH Keys between reboots
-# @ref http://apple.stackexchange.com/questions/254468/macos-sierra-doesn-t-seem-to-remember-ssh-keys-between-reboots
-ssh-add -A &> /dev/null
