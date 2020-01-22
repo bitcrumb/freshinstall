@@ -142,6 +142,7 @@ brew install youtube-dl
 
 npm install -g react-native-cli
 
+brew install ios-deploy
 brew install watchman
 # Watchman needs permissions on ~/Library/LaunchAgents
 if [ ! -d "~/Library/LaunchAgents" ]; then
@@ -155,6 +156,7 @@ brew cask install reactotron
 
 brew install --HEAD libimobiledevice
 gem install xcpretty
+gem install bundler
 
 
 ###############################################################################
