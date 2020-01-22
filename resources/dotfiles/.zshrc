@@ -1,8 +1,3 @@
-source ~/.profile
-
-# Load in .bashrc
-source ~/.bashrc
-
 # ls
 alias la="ls -alG"
 

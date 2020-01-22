@@ -13,8 +13,8 @@ if [ "$starting_script" != "freshinstall.sh" ]; then
 fi;
 
 DOIT="no"
-if [ -f ~/.bash_profile ]; then
-	echo -e "\nA ~/.bash_profile (and other files) already exists and will be overwritten.\nEnter “overwrite” to continue, or just hit enter to skip this step."
+if [ -f ~/.zshrc ]; then
+	echo -e "\nA ~/.zshrc (and other files) already exists and will be overwritten.\nEnter “overwrite” to continue, or just hit enter to skip this step."
 	echo -ne "> \033[94m\a"
 	read
 	echo -e "\033[0m\033[1A"

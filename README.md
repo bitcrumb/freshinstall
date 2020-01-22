@@ -64,7 +64,7 @@ With successive runs, `./freshinstall` will pick up where it left. If you do wan
     - Git branch autocompletion
     - Makefile autocompletion
 
-    _Note that these files (`.bash_profile` and such) will be altered in later steps, upon installing specific pieces of software_
+    _Note that these files (`.zshrc` and such) will be altered in later steps, upon installing specific pieces of software_
 
 5. Software
 
