@@ -1,3 +1,5 @@
+export LANG=en_US.utf8
+
 # ls
 alias la="ls -alG"
 
