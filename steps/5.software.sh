@@ -111,6 +111,7 @@ brew cask install firefox
 ###############################################################################
 
 brew cask install iterm2
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 npm install -g spaceship-prompt
 
 # TODO: configure iTerm theme (& font)
