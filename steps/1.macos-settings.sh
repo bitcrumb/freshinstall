@@ -126,7 +126,7 @@ yes | (cp -i ./resources/wallpaper.jpg ~/Pictures/wallpaper.jpg > /dev/null 2>&1
 sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '~/Pictures/wallpaper.jpg'" && killall Dock
 
 # Set sidebar icon size to small
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Scrollbars behavior
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
