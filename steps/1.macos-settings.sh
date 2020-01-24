@@ -22,9 +22,6 @@ echo -e "\n- Housekeeping …"
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
-#echo -e "\033[1A\b✔︎"
-#echo -e "\033[1F\033[2K✔︎ HOUSEKEEPING"
-
 ###############################################################################
 # Terminal                                                                    #
 ###############################################################################
@@ -99,8 +96,8 @@ echo -e "- Energy Preferences …"
 
 IS_MACBOOK=`/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book"`
 if [[ "$IS_MACBOOK" != "" ]]; then
-    sudo pmset -c sleep 0 disksleep 10 displaysleep 3 halfdim 1 powernap 1
-    sudo pmset -b sleep 0 disksleep 10 displaysleep 3 halfdim 1 powernap 0
+    sudo pmset -c sleep 0 disksleep 10 displaysleep 3 halfdim 1 powernap 1 # charging
+    sudo pmset -b sleep 0 disksleep 10 displaysleep 3 halfdim 1 powernap 0 # battery
 else
     pmset sleep 0 disksleep 0 displaysleep 30 halfdim 1
 fi
@@ -109,7 +106,7 @@ fi
 sudo pmset -a standbydelay 86400
 
 # Set computer sleep to 10 minutes
-# @TOCHECK: need to set to Off ?
+# TODO: need to set to Off ?
 sudo systemsetup -setcomputersleep 10 > /dev/null
 
 ###############################################################################
@@ -122,6 +119,7 @@ echo -e "- General UI/UX …"
 # defaults write com.apple.universalaccess.plist reduceTransparency -bool true
 
 # Set Wallpaper
+# TODO: install Irvue instead https://apps.apple.com/us/app/irvue/id1039633667?mt=12
 yes | (cp -i ./resources/wallpaper.jpg ~/Pictures/wallpaper.jpg > /dev/null 2>&1)
 sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '~/Pictures/wallpaper.jpg'" && killall Dock
 
