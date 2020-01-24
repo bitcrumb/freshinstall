@@ -60,11 +60,10 @@ With successive runs, `./freshinstall` will pick up where it left. If you do wan
 
     This step will copy over the defined dotfiles. Included things are:
 
-    - A customized prompt
-    - Git branch autocompletion
-    - Makefile autocompletion
+    - A set of aliases
+    - A default .gitignore
 
-    _Note that these files (`.zshrc` and such) will be altered in later steps, upon installing specific pieces of software_
+    _Note that these files (`.gitignore` and such) will be altered in later steps, upon installing specific pieces of software_
 
 5. Software
 
