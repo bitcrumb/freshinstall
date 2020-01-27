@@ -78,8 +78,8 @@ DevToolsSecurity -enable 2>&1 > /dev/null
 # XCODE: Configure Xcode/ Simulator                                           #
 ###############################################################################
 
-# Don't show device bezels
-defaults write com.apple.iphonesimulator ShowChrome -bool FALSE
+# Make sure to show device bezels
+defaults write com.apple.iphonesimulator ShowChrome -bool YES
 
 # Allow iOS Simulator in Fullscreen Mode, so that you can stock another fullscreen window next to it
 defaults write com.apple.iphonesimulator AllowFullscreenMode -bool YES
