@@ -103,8 +103,10 @@ brew cask install firefox
 # FONTS                                                                       #
 ###############################################################################
 
-# TODO: Download IBM Plex font and move it to ~/Library/Fonts
-
+brew tap homebrew/cask-fonts
+brew cask install font-inconsolata
+brew cask install font-ibm-plex
+brew cask install font-firacode-nerd-font-mono
 
 ###############################################################################
 # ITERM                                                                       #
