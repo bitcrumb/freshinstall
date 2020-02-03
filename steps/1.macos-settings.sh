@@ -118,10 +118,6 @@ echo -e "- General UI/UX …"
 # Disable transparency in the menu bar and elsewhere
 # defaults write com.apple.universalaccess.plist reduceTransparency -bool true
 
-# Set Wallpaper
-# TODO: install Irvue instead https://apps.apple.com/us/app/irvue/id1039633667?mt=12
-yes | (cp -i ./resources/wallpaper.jpg ~/Pictures/wallpaper.jpg > /dev/null 2>&1)
-sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '~/Pictures/wallpaper.jpg'" && killall Dock
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
