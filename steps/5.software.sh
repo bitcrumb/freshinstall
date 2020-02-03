@@ -265,6 +265,7 @@ brew cask install figma
 brew cask install framer-x
 
 brew cask install moom
+brew cask install choosy
 
 brew cask install charles
 brew cask install postman
