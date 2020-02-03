@@ -118,7 +118,6 @@ echo -e "- General UI/UX …"
 # Disable transparency in the menu bar and elsewhere
 # defaults write com.apple.universalaccess.plist reduceTransparency -bool true
 
-
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
@@ -275,11 +274,6 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0.25
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-# Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
-# defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
  
