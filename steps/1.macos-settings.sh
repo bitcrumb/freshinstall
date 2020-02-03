@@ -446,10 +446,6 @@ chflags nohidden ~/Library
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
 
-# Remove Dropbox’s green checkmark icons in Finder
-# file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-# [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
-
 # @TOCHECK Set Finder Sidebar items
 # https://github.com/mathiasbynens/dotfiles/issues/693
 # 	`defaults read com.apple.sidebarlists` -> VolumesList
