@@ -39,7 +39,8 @@ fi;
 # Node based tools                                                            #
 ###############################################################################
 
-npm i -g node-notifier-cli
+npm install -g node-notifier-cli
+npm i -g gitmoji-cli
 
 
 ###############################################################################
@@ -88,6 +89,7 @@ if [ "$AppleID" != "" ]; then
 	mas install 404167149 # IP Scanner
 	mas install 803453959 # Slack
 	mas install 411643860 # DaisyDisk
+	mas install 407963104 # Pixelmator
 
 fi;
 
@@ -254,6 +256,9 @@ brew cask install vlc
 brew install duti
 duti -s org.videolan.vlc public.avi all
 
+brew tap homebrew/cask-drivers
+brew cask install sonos
+
 brew cask install zeplin
 brew cask install sketch
 brew cask install figma
@@ -274,6 +279,8 @@ brew cask install microsoft-office
 brew cask install daisydisk
 brew cask install little-snitch
 brew cask install paparazzi
+
+brew cask install netnewswire
 
 source ./software/vscode.sh
 
