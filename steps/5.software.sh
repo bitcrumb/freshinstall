@@ -117,7 +117,7 @@ brew cask install font-firacode-nerd-font-mono
 
 brew cask install iterm2
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
+brew install shellcheck
 # TODO: configure iTerm theme (& font)
 
 

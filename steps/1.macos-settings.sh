@@ -94,7 +94,7 @@ sudo /usr/sbin/systemsetup -setusingnetworktime on > /dev/null
 
 echo -e "- Energy Preferences …"
 
-IS_MACBOOK=`/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book"`
+IS_MACBOOK=$(/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book")
 if [[ "$IS_MACBOOK" != "" ]]; then
     sudo pmset -c sleep 0 disksleep 10 displaysleep 3 halfdim 1 powernap 1 # charging
     sudo pmset -b sleep 0 disksleep 10 displaysleep 3 halfdim 1 powernap 0 # battery
@@ -276,7 +276,6 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0.25
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
- 
 defaults write com.apple.universalaccess.plist HIDScrollZoomModifierMask -int 262144
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 
