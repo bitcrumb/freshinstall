@@ -283,7 +283,15 @@ brew cask install paparazzi
 
 brew cask install netnewswire
 
-source ./software/vscode.sh
+###############################################################################
+# VSCODE                                                                      #
+###############################################################################
+
+brew cask install visual-studio-code
+code --install-extension shan.code-settings-sync # the only extension we need, it backups & sync settings & extensions
+
+echo -e "\n\033[93m>To import all settings & extensions of Visual Studio Code, couple your\033[0m"
+echo -e "\033[93mGithub account and download them through the 'Sync Settings' extensions.\033[0m\n"
 
 ###############################################################################
 # ALL DONE NOW!                                                               #
