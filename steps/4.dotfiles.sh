@@ -16,7 +16,7 @@ DOIT="no"
 if [ -f ~/.zshrc ]; then
 	echo -e "\nA ~/.zshrc (and other files) already exists and will be overwritten.\nEnter “overwrite” to continue, or just hit enter to skip this step."
 	echo -ne "> \033[94m\a"
-	read
+	read -r
 	echo -e "\033[0m\033[1A"
 
 	if [[ "$REPLY" == "overwrite" ]]; then

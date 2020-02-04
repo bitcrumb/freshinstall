@@ -62,7 +62,7 @@ if [ "$xcode_ok" == "no" ]; then
 			xcode-select --install &>/dev/null
 
 			echo -e "\nPress any key when the installer has finished."
-			read -n 1
+			read -r -n 1
 
 		fi;
 	fi;
@@ -92,7 +92,7 @@ defaults write com.apple.iphonesimulator AllowFullscreenMode -bool YES
 echo -e "\n- Homebrew:"
 
 echo -ne "\n  - Installation Status      "
-if [ -n "$(which brew)" ]; then
+if command -v brew; then
 	echo -e "\033[32mInstalled\033[0m"
 else
 	echo -e "\033[93mInstalling\033[0m"
@@ -104,10 +104,10 @@ fi;
 echo -ne "  - Folder permissions       "
 if [ "$(ls -ld /usr/local/Cellar/ | awk '{print $3}')" != "$(whoami)" ]; then
 	echo -e "\033[93mFixing\033[0m"
-	sudo chown -R $(whoami) /usr/local/Cellar
-	sudo chown -R $(whoami) /usr/local/Homebrew
-	sudo chown -R $(whoami) /usr/local/var/homebrew/locks
-	sudo chown -R $(whoami) /usr/local/etc /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/Frameworks /usr/local/share/locale /usr/local/share/man /usr/local/opt
+	sudo chown -R "$(whoami)" /usr/local/Cellar
+	sudo chown -R "$(whoami)" /usr/local/Homebrew
+	sudo chown -R "$(whoami)" /usr/local/var/homebrew/locks
+	sudo chown -R "$(whoami)" /usr/local/etc /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/Frameworks /usr/local/share/locale /usr/local/share/man /usr/local/opt
 else
 	echo -e "\033[32mOK\033[0m"
 fi;
@@ -115,7 +115,7 @@ fi;
 # Run brew doctor to be sure
 echo -ne "  - Check with “brew doctor” "
 
-if [ "$(brew doctor 2>&1 | grep "Error")" ]; then
+if brew doctor 2>&1 | grep -q "Error"; then
 	echo -e "\033[31mNOK\033[0m"
 	echo -e "\n\033[93mUh oh, “brew doctor” returned some errors … please fix these manually and then restart ./freshinstall\033[0m\n"
 	exit
@@ -132,8 +132,8 @@ echo -e "\n- Git: "
 echo -ne "\n  - Installation Status      "
 
 GIT_NEEDS_TO_BE_INSTALLED="no"
-if [ -n "$(which git)" ]; then
-	if [ ! -n "$(git --version) | grep "Apple"" ]; then # we don't want the Apple version
+if command -v git; then
+  if git --version | grep -q "Apple"; then
 		echo -e "\033[33mNeeds upgrade\033[0m"
 		GIT_NEEDS_TO_BE_INSTALLED="yes"
 	else
@@ -155,7 +155,7 @@ echo -e "  - Setting up your Git Identity …"
 
 # Fall back to the Apple ID as the git e-mail address if none set yet
 if [ -z "$(git config --global user.email)" ]; then
-	if [ -n "$(defaults read NSGlobalDomain AppleID 2>&1 | grep -E "( does not exist)$")" ]; then
+	if defaults read NSGlobalDomain AppleID 2>&1 | grep -qE "( does not exist)$"; then
 		EMAIL_ADDRESS=""
 	else
 		EMAIL_ADDRESS="$(defaults read NSGlobalDomain AppleID)"
@@ -165,7 +165,7 @@ else
 fi;
 echo -e "\n    What's the e-mail address to use with Git? (default: $EMAIL_ADDRESS)"
 echo -ne "    > \033[34m\a"
-read
+read -r
 echo -e "\033[0m\033[1A\n"
 [ -n "$REPLY" ] && EMAIL_ADDRESS=$REPLY
 
@@ -179,7 +179,7 @@ else
 fi;
 echo -e "    What's the username to use with Git? (default: $USERNAME)"
 echo -ne "    > \033[34m\a"
-read
+read -r
 echo -e "\033[0m\033[1A\n"
 [ -n "$REPLY" ] && USERNAME=$REPLY
 

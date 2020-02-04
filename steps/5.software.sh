@@ -4,7 +4,7 @@
 # PREVENT PEOPLE FROM SHOOTING THEMSELVES IN THE FOOT                         #
 ###############################################################################
 
-starting_script=`basename "$0"`
+starting_script=$(basename "$0")
 if [ "$starting_script" != "freshinstall.sh" ]; then
 	echo -e "\n\033[31m\aUhoh!\033[0m This script is part of freshinstall and should not be run by itself."
 	echo -e "Please launch freshinstall itself using \033[1m./freshinstall.sh\033[0m"
@@ -26,12 +26,12 @@ nvm use default 10
 NPM_USER=""
 echo -e "\nWhat's your npm username?"
 echo -ne "> \033[34m\a"
-read
+read -r
 echo -e "\033[0m\033[1A\n"
 [ -n "$REPLY" ] && NPM_USER=$REPLY
 
 if [ "$NPM_USER" != "" ]; then
-	npm adduser $NPM_USER
+	npm adduser "$NPM_USER"
 fi;
 
 
@@ -58,21 +58,21 @@ source ~/.profile
 brew install mas
 
 # Apple ID
-if [ -n "$(defaults read NSGlobalDomain AppleID 2>&1 | grep -E "( does not exist)$")" ]; then
+if defaults read NSGlobalDomain AppleID 2>&1 | grep -E "( does not exist)$"; then
 	AppleID=""
 else
 	AppleID="$(defaults read NSGlobalDomain AppleID)"
 fi;
 echo -e "\nWhat's your Apple ID? (default: $AppleID)"
 echo -ne "> \033[34m\a"
-read
+read -r
 echo -e "\033[0m\033[1A\n"
 [ -n "$REPLY" ] && AppleID=$REPLY
 
 if [ "$AppleID" != "" ]; then
 
 	# Sign in
-	mas signin $AppleID
+	mas signin "$AppleID"
 
 	# Tweetbot + config
 	mas install 557168941 # Tweetbot
@@ -151,8 +151,8 @@ npm install -g react-native-cli
 brew install ios-deploy
 brew install watchman
 # Watchman needs permissions on ~/Library/LaunchAgents
-if [ ! -d "~/Library/LaunchAgents" ]; then
-	sudo chown -R $(whoami):staff ~/Library/LaunchAgents
+if [ ! -d "$HOME/Library/LaunchAgents" ]; then
+	sudo chown -R "$(whoami):staff ~/Library/LaunchAgents"
 else
 	mkdir ~/Library/LaunchAgents
 fi;
@@ -198,14 +198,14 @@ brew cask install transmission
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
 defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Transmission/.incomplete"
 if [ ! -d "${HOME}/Downloads/Transmission/.incomplete" ]; then
-	mkdir -p ${HOME}/Downloads/Transmission/.incomplete
+	mkdir -p "${HOME}/Downloads/Transmission/.incomplete"
 fi;
 
 # Use `~/Downloads/_COMPLETE` to store completed downloads
 defaults write org.m0k.transmission DownloadLocationConstant -bool true
 defaults write org.m0k.transmission DownloadFolder -string "${HOME}/Downloads/Transmission"
 if [ ! -d "${HOME}/Downloads/Transmission/" ]; then
-	mkdir -p ${HOME}/Downloads/Transmission
+	mkdir -p "${HOME}/Downloads/Transmission"
 fi;
 
 # Autoload torrents from Downloads folder

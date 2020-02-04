@@ -24,7 +24,7 @@ SSH_DIR=~/.ssh
 
 echo -ne "\n- Checking $SSH_DIR for existence: "
 
-if [ "$(ls $SSH_DIR 2>&1 | grep "No such file or directory")" ]; then
+if ls $SSH_DIR 2>&1 | grep -q "No such file or directory"; then
 	ssh_dir_present="no"
 else
 	ssh_dir_present="yes"
@@ -43,7 +43,7 @@ fi;
 
 echo -ne "- Checking $SSH_DIR/config for existence: "
 
-if [ "$(cat $SSH_DIR/config 2>&1 | grep "No such file or directory")" ]; then
+if cat $SSH_DIR/config 2>&1 | grep -q "No such file or directory"; then
 	config_file_present="no"
 else
 	config_file_present="yes"
@@ -67,7 +67,7 @@ fi;
 
 echo -ne "- Detecting SSH keys in $SSH_DIR/: "
 
-if [ "$(ls -a $SSH_DIR/*.pub 2>&1 | sort | grep "No such file or directory")" ]; then
+if ls -a $SSH_DIR/*.pub 2>&1 | sort | grep -q "No such file or directory"; then
 	ssh_key_detected="no"
 else
 	ssh_key_detected="yes"
@@ -75,17 +75,17 @@ fi;
 
 if [ "$ssh_key_detected" == "yes" ]; then
 	echo -e "\033[32mOne or more detected\033[0m\n"
-	for file in "$(ls -a $SSH_DIR/*.pub)"; do
+	for file in ls -a "$SSH_DIR/*.pub"; do
 
 		echo -e "  - \033[4m$file\033[0m\n"
 
-		FINGERPRINT="$(ssh-keygen -lf $file)"
+		FINGERPRINT="$(ssh-keygen -lf "$file")"
 		FINGERPRINT_MD5="$(ssh-keygen -E md5 -lf $file)"
 		echo -e "    Fingerprint:              $FINGERPRINT"
 		echo -e "    Fingerprint (md5):        $FINGERPRINT_MD5"
 
 		echo -ne "    Status:                   "
-		if [ "$(ssh-add -l | grep "${file/.pub/}")" ]; then
+		if ssh-add -l | grep -q "${file/.pub/}"; then
 			echo -e "\033[32mLoaded in ssh-agent\033[0m\n"
 		else
 			echo -e "\033[31mNot loaded in ssh-agent\033[0m\n"
@@ -112,14 +112,14 @@ else
 	echo -e "\033[93mCREATING\033[0m\n"
 
 	# Suggest the Apple ID as the e-mail address to use for SSH key generation
-	if [ -n "$(defaults read NSGlobalDomain AppleID 2>&1 | grep -E "( does not exist)$")" ]; then
+	if defaults read NSGlobalDomain AppleID 2>&1 | grep -qE "( does not exist)$"; then
 		EMAIL_ADDRESS=""
 	else
 		EMAIL_ADDRESS="$(defaults read NSGlobalDomain AppleID)"
 	fi;
 	echo -e "What's your e-mail address to use with your SSH key? (default: $EMAIL_ADDRESS)"
 	echo -ne "> \033[34m\a"
-	read
+	read -r
 	echo -e "\033[0m\033[1A\n"
 	[ -n "$REPLY" ] && EMAIL_ADDRESS=$REPLY
 
@@ -146,4 +146,4 @@ fi;
 
 echo -e "\n\033[93mGreat, SSH is now configured! Don't forget to add your public SSH key to any services and servers you're using.\033[0m"
 
-for file in "$(ls -a $SSH_DIR/*.pub)"; do cat $file; done;
+for file in $(ls -a "$SSH_DIR"/*.pub); do cat "$file"; done;

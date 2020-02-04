@@ -52,7 +52,7 @@ echo -e "- Naming things …"
 computername="$(hostname)"
 echo -e "\n  What should your computer be named? (default: $computername)"
 echo -ne "  > \033[34m\a"
-read
+read -r
 echo -e "\033[0m\033[1A"
 [ -n "$REPLY" ] && computername=$REPLY
 computername_escaped="${computername// /}" # strip spaces
@@ -60,23 +60,23 @@ computername_escaped="${computername// /}" # strip spaces
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "$computername"
 sudo scutil --set HostName "$computername"
-sudo scutil --set LocalHostName $computername_escaped
+sudo scutil --set LocalHostName "$computername_escaped"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$computername"
 
 # Apple ID
-if [ -n "$(defaults read NSGlobalDomain AppleID 2>&1 | grep -E "( does not exist)$")" ]; then
+if defaults read NSGlobalDomain AppleID 2>&1 | grep -qE "( does not exist)$"; then
 	AppleID=""
 else
 	AppleID="$(defaults read NSGlobalDomain AppleID)"
 fi;
 echo -e "\n  What's your Apple ID? (default: $AppleID)"
 echo -ne "  > \033[34m\a"
-read
+read -r
 echo -e "\033[0m\033[1A\n"
 [ -n "$REPLY" ] && AppleID=$REPLY
 
 # Set AppleID
-defaults write NSGlobalDomain AppleID -string $AppleID
+defaults write NSGlobalDomain AppleID -string "$AppleID"
 
 ###############################################################################
 # DATE & TIME                                                                 #
