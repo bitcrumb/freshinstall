@@ -147,6 +147,7 @@ brew install youtube-dl
 ###############################################################################
 
 npm install -g react-native-cli
+npm install -g expo-cli
 
 brew install ios-deploy
 brew install watchman
