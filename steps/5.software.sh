@@ -21,7 +21,7 @@ source ~/.zshrc
 
 nvm install 10
 nvm install 12
-nvm use default 12
+nvm alias default 12
 
 NPM_USER=""
 echo -e "\nWhat's your npm username?"
@@ -49,7 +49,7 @@ npm install -g spaceship-prompt
 
 curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
 source ~/.profile
-
+rvm install "ruby-2.6.3"
 
 ###############################################################################
 # Mac App Store                                                               #
@@ -133,17 +133,6 @@ brew cask install discord
 
 
 ###############################################################################
-# IMAGE & VIDEO PROCESSING                                                    #
-###############################################################################
-
-brew install imagemagick --with-librsvg --with-opencl --with-webp
-
-brew install libvpx
-brew install ffmpeg --with-libass --with-libvorbis --with-libvpx --with-x265 --with-ffplay
-brew install youtube-dl
-
-
-###############################################################################
 # REACT NATIVE + TOOLS                                                        #
 ###############################################################################
 
@@ -160,6 +149,7 @@ fi;
 
 brew cask install react-native-debugger
 brew cask install reactotron
+brew cask install adoptopenjdk/openjdk/adoptopenjdk14
 
 brew install --HEAD libimobiledevice
 gem install xcpretty
