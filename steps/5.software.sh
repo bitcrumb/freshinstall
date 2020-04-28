@@ -21,7 +21,7 @@ source ~/.zshrc
 
 nvm install 10
 nvm install 12
-nvm use default 10
+nvm use default 12
 
 NPM_USER=""
 echo -e "\nWhat's your npm username?"
