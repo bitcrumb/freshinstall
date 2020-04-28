@@ -147,7 +147,6 @@ brew install youtube-dl
 # REACT NATIVE + TOOLS                                                        #
 ###############################################################################
 
-npm install -g react-native-cli
 npm install -g expo-cli
 
 brew install ios-deploy
