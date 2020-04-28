@@ -91,6 +91,7 @@ if [ "$AppleID" != "" ]; then
 	mas install 411643860 # DaisyDisk
 	mas install 407963104 # Pixelmator
 	mas install 1039633667 # Irvue
+	mas install 1480068668 # Messenger
 
 fi;
 
