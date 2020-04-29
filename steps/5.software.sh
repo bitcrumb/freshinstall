@@ -92,6 +92,7 @@ if [ "$AppleID" != "" ]; then
 	mas install 407963104 # Pixelmator
 	mas install 1039633667 # Irvue
 	mas install 1480068668 # Messenger
+	mas install 419330170 # Moom
 
 fi;
 
@@ -255,7 +256,6 @@ brew cask install sketch
 brew cask install figma
 brew cask install framer-x
 
-brew cask install moom
 brew cask install choosy
 
 brew cask install charles
