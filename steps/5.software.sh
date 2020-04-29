@@ -137,17 +137,11 @@ brew cask install discord
 # REACT NATIVE + TOOLS                                                        #
 ###############################################################################
 
+brew install watchman
+
 npm install -g expo-cli
 
 brew install ios-deploy
-brew install watchman
-# Watchman needs permissions on ~/Library/LaunchAgents
-if [ ! -d "$HOME/Library/LaunchAgents" ]; then
-	sudo chown -R "$(whoami):staff ~/Library/LaunchAgents"
-else
-	mkdir ~/Library/LaunchAgents
-fi;
-
 brew cask install react-native-debugger
 brew cask install reactotron
 brew cask install adoptopenjdk/openjdk/adoptopenjdk14
