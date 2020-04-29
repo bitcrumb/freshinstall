@@ -93,6 +93,7 @@ if [ "$AppleID" != "" ]; then
 	mas install 1039633667 # Irvue
 	mas install 1480068668 # Messenger
 	mas install 419330170 # Moom
+	mas install 1450874784 # Transporter
 
 fi;
 
