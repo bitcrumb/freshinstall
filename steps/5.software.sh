@@ -151,6 +151,12 @@ brew install --HEAD libimobiledevice
 gem install xcpretty
 gem install bundler
 
+# Install flipper
+brew tap facebook/fb
+brew install idb-companion
+pip3.6 install fb-idb
+brew cask install flipper
+
 
 ###############################################################################
 # QUICK LOOK PLUGINS                                                          #
